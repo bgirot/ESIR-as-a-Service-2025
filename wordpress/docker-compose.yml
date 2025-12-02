@@ -1,0 +1,34 @@
+services:
+  db:
+    image: mariadb:10.6
+    container_name: esir_wp_db
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=somewordpress
+      - MYSQL_DATABASE=wordpress
+      - MYSQL_USER=wordpress
+      - MYSQL_PASSWORD=wordpress
+    volumes:
+      - ./db_data:/var/lib/mysql
+
+
+  wordpress:
+    image: wordpress:latest
+    container_name: esir_wordpress
+    restart: always
+    depends_on:
+      - db  # attendre que la db soit up
+    environment:
+      - WORDPRESS_DB_HOST=db
+      - WORDPRESS_DB_USER=wordpress
+      - WORDPRESS_DB_PASSWORD=wordpress
+      - WORDPRESS_DB_NAME=wordpress
+    volumes:
+      - ./wp_data:/var/www/html
+    networks:
+      - esir-network # our nginx
+      - default      # pour la db
+
+networks:
+  esir-network:
+    external: true

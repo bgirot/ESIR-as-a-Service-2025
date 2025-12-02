@@ -1,0 +1,15 @@
+services:
+  vaultwarden:
+    image: vaultwarden/server:latest
+    container_name: esir_vaultwarden
+    restart: always
+    environment:
+      - WEBSOCKET_ENABLED=true
+    volumes:
+      - ./vw-data:/data         # stockage des mots de passes (aucune idée ce si c'est une bonne pratique)
+    networks:
+      - esir-network
+
+networks:
+  esir-network:
+    external: true

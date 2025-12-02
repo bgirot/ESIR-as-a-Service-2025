@@ -1,0 +1,15 @@
+services:
+  gitea:
+    image: gitea/gitea:latest
+    container_name: esir_gitea
+    environment:
+      - USER_UID=1000
+      - USER_GID=1000
+    volumes:
+      - ./data:/data
+    networks:
+      - esir-network
+
+networks:
+  esir-network:
+    external: true

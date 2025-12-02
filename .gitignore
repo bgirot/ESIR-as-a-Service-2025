@@ -1,0 +1,23 @@
+.DS_Store
+Thumbs.db
+*.log
+
+.vscode/
+.idea/
+
+# --- DOCKER DATA ---
+**/data/
+**/db_data/
+**/mysql_data/
+**/postgres_data/
+**/wp_data/
+**/vw-data/
+**/mm_data/
+**/html/
+
+.env
+*.key
+*.crt
+*.pem
+
+node_modules/
