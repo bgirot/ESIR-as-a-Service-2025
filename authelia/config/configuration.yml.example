@@ -12,7 +12,7 @@ default_redirection_url: https://esir.komquest.cc
 # Gestion sessions
 session:
   name: authelia_session
-  secret: 6226f764406fbc65ab8b336d28a85159851bd034073cfd6e2e7f58bd7af635e7
+  secret: je suis bete
   expiration: 1h
   inactivity: 5m
   domain: komquest.cc
