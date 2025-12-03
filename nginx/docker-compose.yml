@@ -2,6 +2,7 @@ services:
   reverse-proxy:
     image: nginx:latest
     container_name: esir_nginx
+    restart: always
     ports:
       - "80:80"
     volumes:

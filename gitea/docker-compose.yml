@@ -9,6 +9,7 @@ services:
       - ./data:/data
     networks:
       - esir-network
+    restart: always
 
 networks:
   esir-network:
