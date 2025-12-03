@@ -4,7 +4,7 @@ services:
     container_name: esir_esir
     restart: always
     volumes:
-      - ./html:/usr/share/nginx/html:ro
+      - ./app:/usr/share/nginx/html:ro
     networks:
       - esir-network
 
