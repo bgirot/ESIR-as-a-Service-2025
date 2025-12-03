@@ -1,0 +1,38 @@
+theme: dark
+
+server:
+  address: tcp://:9091  # Port interne
+
+log:
+  level: info
+
+jwt_secret: secret_de_bz
+default_redirection_url: https://esir.komquest.cc
+
+# Gestion sessions
+session:
+  name: authelia_session
+  secret: chuut_c_est_un_secret
+  expiration: 1h
+  inactivity: 5m
+  domain: komquest.cc 
+
+# stockage des useers dans un ficher
+authentication_backend:
+  file:
+    path: /config/users_database.yml
+
+access_control:
+  default_policy: deny
+  rules:
+    # tlm peut voir la page d'auth
+    - domain: "auth.komquest.cc"
+      policy: bypass
+    # mais faut un pwd pour voir le reste
+    - domain: "*.komquest.cc"
+      policy: one_factor
+
+# Notifications (pour réinitialiser le mdp, on simule l'envoi dans un fichier)
+notifier:
+  filesystem:
+    filename: /config/notification.txt

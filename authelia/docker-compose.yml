@@ -1,0 +1,15 @@
+services:
+  authelia:
+    image: authelia/authelia
+    container_name: esir_authelia
+    restart: always
+    volumes:
+      - ./config:/config
+    networks:
+      - esir-network
+    environment:
+      - TZ=Europe/Paris
+
+networks:
+  esir-network:
+    external: true

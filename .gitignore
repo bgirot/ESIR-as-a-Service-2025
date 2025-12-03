@@ -20,6 +20,11 @@ Thumbs.db
 *.crt
 *.pem
 
+# Authelia
+**/authelia/config/*.yml
+!**/authelia/config/*.example
+
+
 # web
 *.scss
 *.css.map

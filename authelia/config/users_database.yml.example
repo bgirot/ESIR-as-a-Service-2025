@@ -1,0 +1,14 @@
+users:
+  admin:
+    displayname: "bgirot"
+    password: "hash de fou malade"
+    email: admin@komquest.cc
+    groups:
+      - admins
+
+  guest:
+    displayname: "guest"
+    password: "hash de zinzin" 
+    email: guest@komquest.cc
+    groups:
+      - guests
