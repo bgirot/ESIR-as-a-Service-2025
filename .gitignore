@@ -5,7 +5,7 @@ Thumbs.db
 .vscode/
 .idea/
 
-# --- DOCKER DATA ---
+# docker
 **/data/
 **/db_data/
 **/mysql_data/
@@ -20,4 +20,7 @@ Thumbs.db
 *.crt
 *.pem
 
+# web
+*.scss
+*.css.map
 node_modules/
