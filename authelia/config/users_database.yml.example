@@ -1,5 +1,5 @@
 users:
-  admin:
+  bgirot:
     displayname: "bgirot"
     password: "hash de fou malade"
     email: admin@komquest.cc
