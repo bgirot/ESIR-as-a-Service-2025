@@ -1,10 +1,10 @@
 services:
   db:
-    image: postgres:13-alpine
+    image: postgres:16-alpine
     container_name: esir_mm_db
-    restart: unless-stopped
+    restart: always
     volumes:
-      - ./db_data:/var/lib/postgresql/data
+      - mm_db_data:/var/lib/postgresql/data
     environment:
       - POSTGRES_DB=mattermost
       - POSTGRES_USER=mmuser
@@ -15,21 +15,23 @@ services:
   mattermost:
     image: mattermost/mattermost-team-edition:latest
     container_name: esir_mattermost
-    restart: unless-stopped
+    restart: always
     depends_on:
       - db
     environment:
-        # Config db
       - MM_SQLSETTINGS_DRIVERNAME=postgres
       - MM_SQLSETTINGS_DATASOURCE=postgres://mmuser:mmuser_password@db:5432/mattermost?sslmode=disable&connect_timeout=10
-      # Url du site (Important pour les liens)
       - MM_SERVICESETTINGS_SITEURL=http://chat.test.local
     volumes:
       - ./mm_data:/mattermost/data
     networks:
-      - esir-network  # pour nginx
-      - default     # pour la db
+      - esir-network
+      - default
 
 networks:
   esir-network:
     external: true
+
+
+volumes:
+  mm_db_data:
