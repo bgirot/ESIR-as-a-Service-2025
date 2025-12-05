@@ -1,6 +1,6 @@
 services:
   vocechat:
-    image: MerryMilo/vocechat-server:latest
+    image: privoce/vocechat-server:latest
     container_name: esir_vocechat
     restart: unless-stopped
     volumes:
