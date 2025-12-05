@@ -42,3 +42,27 @@ access_control:
 notifier:
   filesystem:
     filename: /config/notification.txt
+
+# OIDC
+identity_providers:
+  oidc:
+    hmac_secret: openssl rand -hex 32
+    issuer_private_key: /config/oidc.key
+
+    access_token_lifespan: 1h
+    id_token_lifespan: 1h
+    refresh_token_lifespan: 90m
+
+    clients:
+      - id: vocechat
+        description: VoceChat
+        secret: '$pbkdf2-sha512$...' 
+        public: false
+        authorization_policy: one_factor
+        redirect_uris:
+          - https://chat.komquest.cc/api/admin/system/third_party_login/callback
+        scopes:
+          - openid
+          - profile
+          - email
+        userinfo_signing_algorithm: none
