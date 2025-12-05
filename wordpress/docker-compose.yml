@@ -15,7 +15,7 @@ services:
   wordpress:
     image: wordpress:latest
     container_name: esir_wordpress
-    restart: always
+    restart: unless-stopped
     depends_on:
       - db  # attendre que la db soit up
     environment:

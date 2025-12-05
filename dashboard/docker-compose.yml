@@ -2,7 +2,7 @@ services:
   dashboard:
     image: nginx:alpine
     container_name: esir_esir
-    restart: always
+    restart: unless-stopped
     volumes:
       - ./app:/usr/share/nginx/html:ro
     networks:

@@ -2,7 +2,7 @@ services:
   db:
     image: postgres:16-alpine
     container_name: esir_mm_db
-    restart: always
+    restart: unless-stopped
     volumes:
       - mm_db_data:/var/lib/postgresql/data
     environment:

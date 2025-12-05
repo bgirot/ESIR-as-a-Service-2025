@@ -2,7 +2,7 @@ services:
   reverse-proxy:
     image: nginx:latest
     container_name: esir_nginx
-    restart: always
+    restart: unless-stopped
     ports:
       - "80:80"
       - "443:443"
