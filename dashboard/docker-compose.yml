@@ -4,7 +4,7 @@ services:
     container_name: esir_dashboard
     restart: unless-stopped
     volumes:
-      - ./public/conf.yml:/app/public/conf.yml
+      - ./public/conf.yml:/app/user-data/conf.yml
     networks:
       - esir-network
     
