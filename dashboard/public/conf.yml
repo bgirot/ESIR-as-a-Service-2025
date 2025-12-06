@@ -1,7 +1,7 @@
 pageInfo:
   title: ESIR - AL
   description: Portail d'accès aux service du projet d'AL
-  favicon: esir_logo.png
+  favicon: favicon.png
   navLinks:
     - title: GitHub
       path: https://github.com/bgirot/ESIR-as-a-Service-2025
