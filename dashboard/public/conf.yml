@@ -6,6 +6,8 @@ pageInfo:
       path: https://github.com/bgirot/ESIR-as-a-Service-2025
     - title: Documentation
       path: https://github.com/bgirot/ESIR-as-a-Service-2025/wiki
+    - title: Se déconnecter
+      path: https://auth.komquest.cc/logout
   footerText: "Deployé par Balthazar GIROT dans le cadre du projet d'Architecture Logicielle - ESIR2 INFO SI 2025"
 
 
@@ -16,13 +18,6 @@ appConfig:
   language: fr
   statusCheck: true
   statusCheckInterval: 30
-  auth:
-    enableHeaderAuth: true
-    headerAuth:
-      userHeader: REMOTE_USER
-      logoutUrl: https://auth.komquest.cc/logout
-    headerAuth:
-      groupHeader: REMOTE_GROUPS
 
 sections:
   - name: Communication
