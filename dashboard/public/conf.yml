@@ -25,14 +25,14 @@ sections:
     icon: fas fa-rocket
     items:
       - title: Rocket.Chat
-        description: Messagerie d'équipe
+        description: Plateforme de messagerie d'équipe sécurisée, permettant la communication en temps réel et le partage de fichiers.
         url: https://chat.komquest.cc
         icon: rocketchat.svg
         target: newtab
         statusCheck: true
 
       - title: Gitea
-        description: Code Source & Git
+        description: Solution légère pour l'hébergement des dépôts Git, la gestion de versions et la collaboration sur le code source.
         url: https://git.komquest.cc
         icon: gitea.svg
         target: newtab
@@ -42,7 +42,7 @@ sections:
     icon: fas fa-cloud
     items:
       - title: WordPress
-        description: Blog Corporate
+        description: Système de gestion de contenu (CMS) pour l'édition et la publication de sites web et de blogs (e.g., Blog d'entreprise).
         url: https://blog.komquest.cc
         icon: wordpress.svg
         target: newtab
@@ -52,7 +52,7 @@ sections:
     icon: fas fa-lock
     items:
       - title: Vaultwarden
-        description: Coffre-fort Mots de passe
+        description: Gestionnaire de mots de passe chiffré pour la gestion sécurisée des identifiants.
         url: https://vault.komquest.cc
         icon: vaultwarden.svg
         target: newtab
@@ -69,7 +69,7 @@ sections:
     icon: fas fa-tools
     items:
       - title: Dashy
-        description: Tableau de bord des services (ce que vous voyez)
+        description: Tableau de bord centralisé qui sert de point d'accès unique à l'infrastructure et affiche l'état de santé des services.
         url: https://esir.komquest.cc
         icon : dashy.png
         target: newtab
