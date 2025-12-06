@@ -14,7 +14,7 @@ appConfig:
   layout: auto
   iconSize: medium
   language: fr
-  statusChecks: true
+  statusCheck: true
   statusCheckInterval: 30
 
 sections:
