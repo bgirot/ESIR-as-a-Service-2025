@@ -67,7 +67,7 @@ sections:
     items:
       - title: Dashy
         description: Tableau de bord des services (ce que vous voyez)
-        url: #
+        url: https://esir.komquest.cc
         icon : dashy.png
         target: newtab
         statusCheck: true
