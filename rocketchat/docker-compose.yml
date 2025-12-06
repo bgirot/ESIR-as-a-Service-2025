@@ -6,33 +6,43 @@ services:
     environment:
       - PORT=3000
       - ROOT_URL=https://chat.komquest.cc
-      - MONGO_URL=mongodb://mongo:27017/rocketchat?directConnection=true
-      - MONGO_OPLOG_URL=mongodb://mongo:27017/local?directConnection=true
+      # Fix SSL + Replica Set
+      - MONGO_URL=mongodb://esir_mongo:27017/rocketchat?directConnection=true&replicaSet=rs0
+      - MONGO_OPLOG_URL=mongodb://esir_mongo:27017/local?directConnection=true&replicaSet=rs0
     depends_on:
       - mongo
+    ports:
+      - "3000:3000"
     networks:
       - esir-network
 
   mongo:
     image: mongo:4.4
     container_name: esir_mongo
-    restart: always
+    restart: unless-stopped
     volumes:
       - ./data/db:/data/db
       - ./data/dump:/dump
+    # Commande standard pour activer le mode Replica Set
     command: mongod --oplogSize 128 --replSet rs0 --bind_ip_all
     networks:
       - esir-network
 
+  # Le script d'initialisation (Version "Intelligente" qui s'arrête quand c'est fini)
   mongo-init-replica:
     image: mongo:4.4
+    container_name: esir_mongo_init
     command: >
       bash -c "for i in `seq 1 30`; do
-          mongo --host mongo --eval 'rs.initiate({ _id: \"rs0\", members: [ { _id: 0, host: \"localhost:27017\" } ] })' &&
-          s=$$? && break || s=$$?;
-          echo \"Tried $$i times. Waiting 5 secs...\";
+          # On tente d'initialiser en pointant bien sur le nom du conteneur 'esir_mongo'
+          mongo --host esir_mongo --eval 'rs.initiate({ _id: \"rs0\", members: [ { _id: 0, host: \"esir_mongo:27017\" } ] })' && break;
+          
+          # Si ça échoue, on vérifie si c'est parce que c'est DÉJÀ fait
+          mongo --host esir_mongo --eval 'if (rs.status().ok) quit(0); else quit(1)' && break;
+          
+          echo \"En attente de Mongo... (Tentative $$i)\";
           sleep 5;
-        done; (exit $$s)"
+        done; exit 0"
     depends_on:
       - mongo
     networks:
