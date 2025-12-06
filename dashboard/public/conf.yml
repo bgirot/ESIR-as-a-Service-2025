@@ -15,6 +15,8 @@ appConfig:
   layout: auto
   iconSize: medium
   language: fr
+  statusChecks: true
+  statusCheckInterval: 30
 
 sections:
   - name: Communication
@@ -25,12 +27,14 @@ sections:
         url: https://chat.komquest.cc
         icon: rocketchat.svg
         target: newtab
+        statusChecks: true
 
       - title: Gitea
         description: Code Source & Git
         url: https://git.komquest.cc
         icon: gitea.svg
         target: newtab
+        statusChecks: true
 
   - name: Fichiers & Web
     icon: fas fa-cloud
@@ -40,6 +44,7 @@ sections:
         url: https://blog.komquest.cc
         icon: wordpress.svg
         target: newtab
+        statusChecks: true
 
   - name: Sécurité
     icon: fas fa-lock
@@ -49,12 +54,14 @@ sections:
         url: https://vault.komquest.cc
         icon: vaultwarden.svg
         target: newtab
+        statusChecks: true
       
       - title: Authelia
         description: Portail SSO
         url: https://auth.komquest.cc
         icon: authelia.png
         target: newtab
+        statusChecks: true
 
   - name: Administration
     icon: fas fa-tools
@@ -64,3 +71,4 @@ sections:
         url: #
         icon : dashy.png
         target: newtab
+        statusChecks: true
