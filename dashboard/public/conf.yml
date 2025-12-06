@@ -1,14 +1,12 @@
----
-# Méta-données de la page
 pageInfo:
-  title: ESIR Infrastructure
-  description: Portail d'accès centralisé
+  title: ESIR - AL
+  description: Portail d'accès aux service du projet d'AL
   navLinks:
     - title: GitHub
-      path: https://github.com
+      path: https://github.com/bgirot/ESIR-as-a-Service-2025
     - title: Documentation
-      path: https://dashy.to/docs
-  footerText: "Deployed by Balthazar - ESIR 2025"
+      path: https://github.com/bgirot/ESIR-as-a-Service-2025/wiki
+  footerText: "Deployé par Balthazar GIROT dans le cadre du projet d'Architecture Logicielle - ESIR2 INFO SI 2025"
 
 
 appConfig:
@@ -17,7 +15,6 @@ appConfig:
   iconSize: medium
   language: fr
 
-# Tes Services
 sections:
   - name: Communication
     icon: fas fa-rocket
