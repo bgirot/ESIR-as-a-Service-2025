@@ -4,8 +4,8 @@ services:
     container_name: esir_dashboard
     restart: unless-stopped
     volumes:
-      - ./public/conf.yml:/app/user-data/conf.yml
-      - ./public/icons:/app/user-data/item-icons
+      - /public/conf.yml:/app/user-data/conf.yml
+      - /public/icons:/app/user-data/item-icons/
     networks:
       - esir-network
     
