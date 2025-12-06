@@ -11,7 +11,7 @@ pageInfo:
 
 
 appConfig:
-  theme: tiger
+  theme: thebe
   layout: auto
   iconSize: medium
   language: fr
