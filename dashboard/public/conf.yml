@@ -1,7 +1,7 @@
 pageInfo:
   title: ESIR - AL
   description: Portail d'accès aux service du projet d'AL
-  favicon: /local/esir_logo.png
+  favicon: esir_logo.png
   navLinks:
     - title: GitHub
       path: https://github.com/bgirot/ESIR-as-a-Service-2025
@@ -23,13 +23,13 @@ sections:
       - title: Rocket.Chat
         description: Messagerie d'équipe
         url: https://chat.komquest.cc
-        icon: /local/rocketchat.svg
+        icon: rocketchat.svg
         target: newtab
 
       - title: Gitea
         description: Code Source & Git
         url: https://git.komquest.cc
-        icon: /local/gitea.svg
+        icon: gitea.svg
         target: newtab
 
   - name: Fichiers & Web
@@ -38,7 +38,7 @@ sections:
       - title: WordPress
         description: Blog Corporate
         url: https://blog.komquest.cc
-        icon: /local/wordpress.svg
+        icon: wordpress.svg
         target: newtab
 
   - name: Sécurité
@@ -47,13 +47,13 @@ sections:
       - title: Vaultwarden
         description: Coffre-fort Mots de passe
         url: https://vault.komquest.cc
-        icon: /local/vaultwarden.svg
+        icon: vaultwarden.svg
         target: newtab
       
       - title: Authelia
         description: Portail SSO
         url: https://auth.komquest.cc
-        icon: /local/authelia.png
+        icon: authelia.png
         target: newtab
 
   - name: Administration
@@ -62,5 +62,5 @@ sections:
       - title: Dashy
         description: Tableau de bord des services (ce que vous voyez)
         url: #
-        icon : /local/dashy.png
+        icon : dashy.png
         target: newtab
