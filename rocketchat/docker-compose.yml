@@ -1,6 +1,6 @@
 services:
   rocketchat:
-    image: registry.rocket.chat/rocketchat/rocket.chat:latest
+    image: registry.rocket.chat/rocketchat/rocket.chat:6.4.8
     container_name: esir_rocketchat
     restart: unless-stopped
     environment:
