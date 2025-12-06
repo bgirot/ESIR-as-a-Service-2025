@@ -6,7 +6,7 @@ services:
     volumes:
       - ./public/conf.yml:/app/user-data/conf.yml
       - ./public/icons:/app/user-data/item-icons/
-      - ./public/icons/favicon.ico:app/public/favicon.ico
+      - ./public/icons/favicon.ico:/app/public/favicon.ico
     networks:
       - esir-network
     
