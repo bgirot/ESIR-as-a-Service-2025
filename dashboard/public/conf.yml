@@ -22,13 +22,13 @@ sections:
       - title: Rocket.Chat
         description: Messagerie d'équipe
         url: https://chat.komquest.cc
-        icon: favicon # Magie : il trouve l'icone tout seul
+        icon: local/rocketchat.svg
         target: newtab
 
       - title: Gitea
         description: Code Source & Git
         url: https://git.komquest.cc
-        icon: favicon
+        icon: local/gitea.svg
         target: newtab
 
   - name: Fichiers & Web
@@ -37,7 +37,7 @@ sections:
       - title: WordPress
         description: Blog Corporate
         url: https://blog.komquest.cc
-        icon: favicon
+        icon: local/wordpress.svg
         target: newtab
 
   - name: Sécurité
@@ -46,18 +46,20 @@ sections:
       - title: Vaultwarden
         description: Coffre-fort Mots de passe
         url: https://vault.komquest.cc
-        icon: favicon
+        icon: local/vaultwarden.svg
         target: newtab
       
       - title: Authelia
         description: Portail SSO
         url: https://auth.komquest.cc
-        icon: favicon
+        icon: local/authelia.png
         target: newtab
 
   - name: Administration
     icon: fas fa-tools
     items:
-      - title: Portainer (Si tu l'as)
+      - title: Dashy
+        description: Tableau de bord des services (ce que vous voyez)
         url: #
-        icon: fas fa-box-open
+        icon : local/dashy.png
+        target: newtab

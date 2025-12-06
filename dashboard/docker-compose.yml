@@ -5,6 +5,7 @@ services:
     restart: unless-stopped
     volumes:
       - ./public/conf.yml:/app/user-data/conf.yml
+      - ./icons:/app/public/local
     networks:
       - esir-network
     
