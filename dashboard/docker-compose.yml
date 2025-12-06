@@ -1,6 +1,6 @@
 services:
   dashy:
-    image: lissy93/dashy
+    image: lissy93/dashy:latest
     container_name: esir_dashboard
     restart: unless-stopped
     volumes:
