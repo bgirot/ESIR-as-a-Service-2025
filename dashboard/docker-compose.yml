@@ -1,12 +1,14 @@
 services:
-  dashboard:
-    image: nginx:alpine
-    container_name: esir_esir
+  dashy:
+    image: lissy93/dashy
+    container_name: esir_dashboard
     restart: unless-stopped
     volumes:
-      - ./app:/usr/share/nginx/html:ro
+      - ./public/conf.yml:/app/public/conf.yml
     networks:
       - esir-network
+    
+    # défaut, port 80
 
 networks:
   esir-network:

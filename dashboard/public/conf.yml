@@ -1,0 +1,66 @@
+---
+# Méta-données de la page
+pageInfo:
+  title: ESIR Infrastructure
+  description: Portail d'accès centralisé
+  navLinks:
+    - title: GitHub
+      path: https://github.com
+    - title: Documentation
+      path: https://dashy.to/docs
+  footerText: "Deployed by Balthazar - ESIR 2025"
+
+
+appConfig:
+  theme: tiger
+  layout: auto
+  iconSize: medium
+  language: fr
+
+# Tes Services
+sections:
+  - name: Communication
+    icon: fas fa-rocket
+    items:
+      - title: Rocket.Chat
+        description: Messagerie d'équipe
+        url: https://chat.komquest.cc
+        icon: favicon # Magie : il trouve l'icone tout seul
+        target: newtab
+
+      - title: Gitea
+        description: Code Source & Git
+        url: https://git.komquest.cc
+        icon: favicon
+        target: newtab
+
+  - name: Fichiers & Web
+    icon: fas fa-cloud
+    items:
+      - title: WordPress
+        description: Blog Corporate
+        url: https://blog.komquest.cc
+        icon: favicon
+        target: newtab
+
+  - name: Sécurité
+    icon: fas fa-lock
+    items:
+      - title: Vaultwarden
+        description: Coffre-fort Mots de passe
+        url: https://vault.komquest.cc
+        icon: favicon
+        target: newtab
+      
+      - title: Authelia
+        description: Portail SSO
+        url: https://auth.komquest.cc
+        icon: favicon
+        target: newtab
+
+  - name: Administration
+    icon: fas fa-tools
+    items:
+      - title: Portainer (Si tu l'as)
+        url: #
+        icon: fas fa-box-open
