@@ -16,6 +16,13 @@ appConfig:
   language: fr
   statusCheck: true
   statusCheckInterval: 30
+  auth:
+    enableHeaderAuth: true
+    headerAuth:
+      userHeader: REMOTE_USER
+      logoutUrl: https://auth.komquest.cc/logout
+    headerAuth:
+      groupHeader: REMOTE_GROUPS
 
 sections:
   - name: Communication
