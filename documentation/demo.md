@@ -3,7 +3,7 @@
 Ce document sert de guide pour tester l'intégralité de mon infrastructure. Il détaille les étapes pour vérifier le fonctionnement du SSO (Single Sign-On) et les fonctionnalités clés de chaque micro-service.
 
 ## Démo rapide et non exhaustive :
-![Gif Présentation](documentation/demo.gif)
+![Gif Présentation](./demo.gif)
 
 ## Identifiants de Test
 

@@ -1,10 +1,25 @@
 # ESIR-as-a-Service 2025 - Infrastructure Micro-Services
 
+Sommaire :
+- [Vue d'ensemble](./README.md)
+- [Authelia - Serveur d'Authentification & SSO](./documentation/authelia.md)
+- [Guide de Démo des Services](./documentation/demo.md)
+
 ## Vue d'ensemble
 Ce dépôt contient la configuration et les procédures de déploiement d'une infrastructure de services auto-hébergés. Le projet repose sur une architecture conteneurisée orchestrée par Docker Compose, sécurisée par un Reverse Proxy (Nginx) et un fournisseur d'identité centralisé (Authelia).
 
 ## Aperçu des Services
 ![Dashboard](documentation/dashboard.png)
+
+1. **Reverse Proxy (Nginx)** : Gère les requêtes entrantes, le routage et la sécurité TLS/SSL.
+2. **Authentification (Authelia)** : Fournit le Single Sign-On (SSO) et l'authentification à deux facteurs (2FA).
+3. **Dashboard (Dashy)** : Tableau de bord centralisé pour accéder aux différents services.
+4. **Git Forge (Gitea)** : Hébergement de dépôts Git avec intégration SSO.
+5. **Site Web (WordPress)** : Plateforme de gestion de contenu avec authentification SSO.
+6. **Prise de notes (Memos)** : Application de prise de notes avec support OAuth2.
+7. **Mots de passe (Vaultwarden)** : Gestionnaire de mots de passe auto-hébergé.
+8. **Synchronisation de fichiers (Seafile)** : Solution de stockage et de synchronisation de fichiers.
+9. **Galerie Photo (Photoview)** : Application de gestion et de visualisation de photos.
 
 ## Architecture Logicielle
 

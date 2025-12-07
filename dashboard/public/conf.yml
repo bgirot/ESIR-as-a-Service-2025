@@ -5,7 +5,7 @@ pageInfo:
     - title: GitHub
       path: https://github.com/bgirot/ESIR-as-a-Service-2025
     - title: Documentation
-      path: https://github.com/bgirot/ESIR-as-a-Service-2025/wiki
+      path: https://github.com/bgirot/ESIR-as-a-Service-2025/blob/main/README.md
     - title: Se déconnecter
       path: https://auth.komquest.cc/logout
       target: sametab
@@ -106,7 +106,7 @@ sections:
         statusCheck: false
       - title: Documentation
         description: Consultez la documentation détaillée du projet
-        url: https://github.com/bgirot/ESIR-as-a-Service-2025/wiki
+        url: https://github.com/bgirot/ESIR-as-a-Service-2025/blob/main/README.md
         icon: doc.svg
         target: newtab
         statusCheck: false
