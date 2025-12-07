@@ -41,8 +41,8 @@ sections:
   - name: Fichiers & Web
     icon: fas fa-cloud
     items:
-      - title: WordPress
-        description: Système de gestion de contenu (CMS) pour l'édition et la publication de sites web et de blogs (e.g., Blog d'entreprise).
+      - title: Blog du Projet
+        description: Site web principal du projet ESIR as a Service, réalisé avec WordPress
         url: https://blog.komquest.cc
         icon: wordpress.svg
         target: newtab
@@ -72,5 +72,13 @@ sections:
         description: Tableau de bord centralisé qui sert de point d'accès unique à l'infrastructure et affiche l'état de santé des services.
         url: https://esir.komquest.cc
         icon : dashy.png
+        target: newtab
+        statusCheck: true
+        items:
+
+      - title: WordPress
+        description: Système de gestion de contenu (CMS) pour l'édition et la publication de sites web et de blogs.
+        url: https://blog.komquest.cc/wp-login.php
+        icon: wordpress.svg
         target: newtab
         statusCheck: true
