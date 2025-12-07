@@ -1,0 +1,51 @@
+services:
+  db:
+    image: mariadb:10.11
+    container_name: esir_seafile-db
+    environment:
+      - MYSQL_ROOT_PASSWORD=seafile_db_root_pw
+      - MYSQL_LOG_CONSOLE=true
+      - MARIADB_AUTO_UPGRADE=1
+    volumes:
+      - seafile-db:/var/lib/mysql
+    networks:
+      - esir-network
+    restart: unless-stopped
+
+  memcached:
+    image: memcached:1.6
+    container_name: esir_seafile-memcached
+    entrypoint: memcached -m 256
+    networks:
+      - esir-network
+    restart: unless-stopped
+
+  seafile:
+    image: seafileltd/seafile-mc:latest
+    container_name: esir_seafile
+    volumes:
+      - seafile-data:/shared
+    environment:
+      - DB_HOST=esir_seafile-db
+      - DB_ROOT_PASSWD=seafile_db_root_pw
+      - TIME_ZONE=Europe/Paris
+      - SEAFILE_ADMIN_EMAIL=admin@komquest.cc
+      - SEAFILE_ADMIN_PASSWORD=bgirotpw 
+      - SEAFILE_SERVER_LETSENCRYPT=false
+      - SEAFILE_SERVER_HOSTNAME=files.komquest.cc
+    depends_on:
+      - db
+      - memcached
+    networks:
+      - esir-network
+    ports:
+      - "8082:80"
+    restart: unless-stopped
+
+volumes:
+  seafile-db:
+  seafile-data:
+
+networks:
+  esir-network:
+    external: true

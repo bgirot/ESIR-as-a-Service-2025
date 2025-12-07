@@ -13,7 +13,7 @@ pageInfo:
 
 
 appConfig:
-  theme: thebe
+  theme: nord
   layout: auto
   iconSize: medium
   language: fr
@@ -31,13 +31,6 @@ sections:
         target: newtab
         statusCheck: true
 
-      - title: Gitea
-        description: Solution légère pour l'hébergement des dépôts Git, la gestion de versions et la collaboration sur le code source.
-        url: https://git.komquest.cc/user/login?redirect_to=%2f
-        icon: gitea.svg
-        target: newtab
-        statusCheck: true
-
       - title: Memos
         description: Application de prise de notes
         url: https://memos.komquest.cc
@@ -45,7 +38,7 @@ sections:
         target: newtab
         statusCheck: true
 
-  - name: Fichiers & Web
+  - name: Gestion de contenu
     icon: fas fa-cloud
     items:
       - title: WordPress
@@ -58,6 +51,18 @@ sections:
         description: Gestion et de partage de photos et vidéos.
         url: https://photos.komquest.cc
         icon: immich.png
+        target: newtab
+        statusCheck: true
+      - title: Gitea
+        description: Solution légère pour l'hébergement des dépôts Git, la gestion de versions et la collaboration sur le code source.
+        url: https://git.komquest.cc/user/login?redirect_to=%2f
+        icon: gitea.svg
+        target: newtab
+        statusCheck: true
+      - title: Seafile
+        description: Plateforme de stockage et de partage de fichiers
+        url: https://files.komquest.cc
+        icon: seafile.png
         target: newtab
         statusCheck: true
 
