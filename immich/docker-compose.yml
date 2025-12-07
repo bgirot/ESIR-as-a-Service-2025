@@ -92,6 +92,7 @@ volumes:
   immich-upload:
   immich-model-cache:
   immich-postgres-data:
+  immich-redis:
 
 networks:
   esir-network:
