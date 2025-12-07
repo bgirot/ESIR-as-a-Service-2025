@@ -1,35 +1,40 @@
-version: "3.8"
+name: immich
 
 services:
   immich-server:
-    image: ghcr.io/immich-app/immich-server:latest
     container_name: esir_immich-server
+    image: ghcr.io/immich-app/immich-server:latest
+    volumes:
+      - immich-upload:/data
+      - /etc/localtime:/etc/localtime:ro
     environment:
       - DB_HOSTNAME=immich-database
       - DB_USERNAME=immich
-      - DB_PASSWORD=immich_db_secret
+      - DB_PASSWORD=immich_db_pw
       - DB_DATABASE=immich
       - REDIS_HOSTNAME=immich-redis
-      - REDIS_PASSWORD=immich_redis_secret
+      - REDIS_PASSWORD=immich_redis_pw
       - TZ=Europe/Paris
-      - UPLOAD_LOCATION=/usr/src/app/upload
-    volumes:
-      - immich-upload:/usr/src/app/upload # Dossier pour les photos
-      - /etc/localtime:/etc/localtime:ro
+      - UPLOAD_LOCATION=/data
+    ports:
+      - '3001:2283'
+    depends_on:
+      - immich-redis
+      - immich-database
     networks:
       - esir-network
-    restart: unless-stopped
+    restart: always
 
   immich-microservices:
-    image: ghcr.io/immich-app/immich-microservices:latest
     container_name: esir_immich-microservices
+    image: ghcr.io/immich-app/immich-microservices:latest
     environment:
       - DB_HOSTNAME=immich-database
       - DB_USERNAME=immich
-      - DB_PASSWORD=immich_db_secret
+      - DB_PASSWORD=immich_db_pw
       - DB_DATABASE=immich
       - REDIS_HOSTNAME=immich-redis
-      - REDIS_PASSWORD=immich_redis_secret
+      - REDIS_PASSWORD=immich_redis_pw
       - TZ=Europe/Paris
       - UPLOAD_LOCATION=/usr/src/app/upload
     volumes:
@@ -37,43 +42,56 @@ services:
       - /etc/localtime:/etc/localtime:ro
     networks:
       - esir-network
-    restart: unless-stopped
     depends_on:
       - immich-database
       - immich-redis
+    restart: always
 
-  immich-database:
-    image: postgres:15-alpine
-    container_name: esir_immich-database
-    environment:
-      - POSTGRES_USER=immich
-      - POSTGRES_PASSWORD=immich_db_secret
-      - POSTGRES_DB=immich
-      - TZ=Europe/Paris
+  immich-machine-learning:
+    container_name: esir_immich-machine-learning
+    image: ghcr.io/immich-app/immich-machine-learning:latest
     volumes:
-      - immich-postgres:/var/lib/postgresql/data
-      - /etc/localtime:/etc/localtime:ro
+      - immich-model-cache:/cache
+    environment:
+      - TZ=Europe/Paris
     networks:
       - esir-network
-    restart: unless-stopped
+    restart: always
 
   immich-redis:
-    image: redis:7-alpine
     container_name: esir_immich-redis
+    image: docker.io/valkey/valkey:8@sha256:81db6d39e1bba3b3ff32bd3a1b19a6d69690f94a3954ec131277b9a26b95b3aa
     environment:
-      - REDIS_PASSWORD=immich_redis_secret
       - TZ=Europe/Paris
     volumes:
       - immich-redis:/data
       - /etc/localtime:/etc/localtime:ro
     networks:
       - esir-network
-    restart: unless-stopped
+    restart: always
+    command: redis-server --requirepass immich_redis_secret
+
+  immich-database:
+    container_name: esir_immich-database
+    image: ghcr.io/immich-app/postgres:14-vectorchord0.4.3-pgvectors0.2.0@sha256:bcf63357191b76a916ae5eb93464d65c07511da41e3bf7a8416db519b40b1c23
+    environment:
+      - POSTGRES_PASSWORD: immich_db_pw
+      - POSTGRES_USER: immich
+      - POSTGRES_DB: immich
+      - POSTGRES_INITDB_ARGS=--data-checksums
+      - TZ=Europe/Paris
+    volumes:
+      - immich-postgres-data:/var/lib/postgresql/data
+      - /etc/localtime:/etc/localtime:ro
+    networks:
+      - esir-network
+    shm_size: 128mb
+    restart: always
 
 volumes:
   immich-upload:
-  immich-postgres:
-  immich-redis:
+  immich-model-cache:
+  immich-postgres-data:
 
 networks:
   esir-network:
