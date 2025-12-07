@@ -27,7 +27,7 @@ services:
 
   immich-microservices:
     container_name: esir_immich-microservices
-    image: ghcr.io/immich-app/immich-microservices:latest
+    image: ghcr.io/immich-app/immich-microservices:release
     environment:
       - DB_HOSTNAME=immich-database
       - DB_USERNAME=immich
@@ -49,7 +49,7 @@ services:
 
   immich-machine-learning:
     container_name: esir_immich-machine-learning
-    image: ghcr.io/immich-app/immich-machine-learning:latest
+    image: ghcr.io/immich-app/immich-machine-learning:release
     volumes:
       - immich-model-cache:/cache
     environment:
