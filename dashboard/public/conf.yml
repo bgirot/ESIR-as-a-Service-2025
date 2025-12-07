@@ -38,6 +38,13 @@ sections:
         target: newtab
         statusCheck: true
 
+      - title: Memos
+        description: Application de prise de notes
+        url: https://memos.komquest.cc
+        icon: memos.png
+        target: newtab
+        statusCheck: true
+
   - name: Fichiers & Web
     icon: fas fa-cloud
     items:

@@ -1,0 +1,22 @@
+services:
+  memos:
+    image: ghcr.io/usememos/memos:latest
+    container_name: esir_memos
+    volumes:
+      - memos-data:/var/opt/memos
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - TZ=Europe/Paris
+    # prt 5230
+    ports:
+      - "5230:5230" 
+    networks:
+      - esir-network
+    restart: always
+
+volumes:
+  memos-data:
+
+networks:
+  esir-network:
+    external: true
