@@ -1,4 +1,5 @@
 # ESIR-as-a-Service 2025 - Infrastructure Micro-Services
+Auteur : Balthazar GIROT, ESIR2 INFO SI - Année 2025-2026
 
 Sommaire :
 - [Vue d'ensemble](./README.md)
@@ -47,8 +48,7 @@ Le tableau ci-dessous résume l'état de déploiement et de sécurisation de cha
 | **Prise de notes** | Memos | ✅ Fonctionnel | ✅ Natif | ✅ Oui |
 | **Mots de passe** | Vaultwarden | ✅ Fonctionnel | N/A | ✅ Oui |
 | **Synchronisation** | Seafile | ✅ Fonctionnel | ⚠️ Partiellement | ✅ Oui |
-| **Galerie Photo** | Photoview | ✅ Fonctionnel | ✅ Natif | ✅ Oui |
-| **Gestion Photos** | Immich | ❌ Abandonné | N/A | N/A |
+| **Galerie Photo** | Photoview | ✅ Fonctionnel | ❌ Payant | ✅ Oui |
 
 **Légende :**
 * ✅ **Fonctionnel** : Déployé, configuré et opérationnel.

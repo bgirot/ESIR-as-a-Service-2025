@@ -74,7 +74,7 @@ Objectif : Tester le service
 
 1. Accéder à : https://photos.komquest.cc
 2. Connexion :
-   - Connectez vous
+   - Connectez vous avec les logs `admin` / `admin_photo_pw!`.
 3. Fonctionnalités à tester :
    - L'utilisateur arrive sur sa timeline (vide initialement).
    - Aller dans Settings > Users. Vous verrez que l'utilisateur guest a un rôle "User" standard.
