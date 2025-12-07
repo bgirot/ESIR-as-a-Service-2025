@@ -1,0 +1,58 @@
+services:
+  photoprism:
+    image: photoprism/photoprism:latest
+    container_name: esir_photoprism
+    depends_on:
+      - mariadb
+    security_opt:
+      - seccomp:unconfined
+      - apparmor:unconfined
+    ports:
+      - "2342:2342" # Port interne
+    environment:
+      PHOTOPRISM_ADMIN_PASSWORD: "admin_photo_pw"
+      PHOTOPRISM_SITE_URL: "https://photos.komquest.cc/"
+      PHOTOPRISM_ORIGINALS_LIMIT: 5000
+      PHOTOPRISM_HTTP_COMPRESSION: "gzip"
+      PHOTOPRISM_DATABASE_DRIVER: "mysql"
+      PHOTOPRISM_DATABASE_SERVER: "mariadb:3306"
+      PHOTOPRISM_DATABASE_NAME: "photoprism"
+      PHOTOPRISM_DATABASE_USER: "photoprism"
+      PHOTOPRISM_DATABASE_PASSWORD: "photoprism_db_pw"
+      PHOTOPRISM_DISABLE_TLS: "true"
+      # Optimisations pour VM
+      PHOTOPRISM_WORKERS: 2 
+    volumes:
+      - photoprism-originals:/photoprism/originals
+      - photoprism-storage:/photoprism/storage
+    networks:
+      - esir-network
+    restart: always
+
+  mariadb:
+    image: mariadb:10.11
+    container_name: esir_photoprism-db
+    security_opt:
+      - seccomp:unconfined
+      - apparmor:unconfined
+    environment:
+      MARIADB_AUTO_UPGRADE: "1"
+      MARIADB_INITDB_SKIP_TZINFO: "1"
+      MARIADB_DATABASE: "photoprism"
+      MARIADB_USER: "photoprism"
+      MARIADB_PASSWORD: "photoprism_db_pw"
+      MARIADB_ROOT_PASSWORD: "photoprism_root_pw"
+    volumes:
+      - photoprism-db:/var/lib/mysql
+    networks:
+      - esir-network
+    restart: always
+
+volumes:
+  photoprism-originals:
+  photoprism-storage:
+  photoprism-db:
+
+networks:
+  esir-network:
+    external: true

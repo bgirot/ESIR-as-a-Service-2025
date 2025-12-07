@@ -47,10 +47,10 @@ sections:
         icon: wordpress.svg
         target: newtab
         statusCheck: true
-      - title: Immich
+      - title: PhotoPrism
         description: Gestion et de partage de photos et vidéos.
         url: https://photos.komquest.cc
-        icon: immich.png
+        icon: photoprism.svg
         target: newtab
         statusCheck: true
       - title: Gitea
