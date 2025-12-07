@@ -4,8 +4,6 @@ services:
   immich-server:
     image: ghcr.io/immich-app/immich-server:latest
     container_name: esir_immich-server
-    port:
-      - "3001:3001"
     environment:
       - DB_HOSTNAME=immich-database
       - DB_USERNAME=immich
