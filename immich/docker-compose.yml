@@ -3,7 +3,7 @@ name: immich
 services:
   immich-server:
     container_name: esir_immich-server
-    image: ghcr.io/immich-app/immich-server:latest
+    image: ghcr.io/immich-app/immich-server:release
     volumes:
       - immich-upload:/data
       - /etc/localtime:/etc/localtime:ro
