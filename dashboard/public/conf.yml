@@ -41,12 +41,13 @@ sections:
   - name: Fichiers & Web
     icon: fas fa-cloud
     items:
-      - title: Blog du Projet
-        description: Site web principal du projet ESIR as a Service, réalisé avec WordPress
-        url: https://blog.komquest.cc
+      - title: WordPress
+        description: Système de gestion de contenu (CMS) pour l'édition et la publication de sites web et de blogs.
+        url: https://blog.komquest.cc/wp-login.php
         icon: wordpress.svg
         target: newtab
         statusCheck: true
+
 
   - name: Sécurité
     icon: fas fa-lock
@@ -76,9 +77,24 @@ sections:
         statusCheck: true
         items:
 
-      - title: WordPress
-        description: Système de gestion de contenu (CMS) pour l'édition et la publication de sites web et de blogs.
-        url: https://blog.komquest.cc/wp-login.php
-        icon: wordpress.svg
+  - name: Liens
+    icons=: fas fa-link
+    items:
+      - title: Repo du Projet
+        description: Accédez au code source complet du projet ESIR as a Service sur GitHub.
+        url: https://github.com/bgirot/ESIR-as-a-Service-2025
+        icon: github.svg
         target: newtab
-        statusCheck: true
+        statusCheck: false
+      - title: Documentation
+        description: Consultez la documentation détaillée du projet
+        url: https://github.com/bgirot/ESIR-as-a-Service-2025/wiki
+        icon: doc.svg
+        target: newtab
+        statusCheck: false
+      - title: Blog du Projet
+        description: Site web principal du projet ESIR as a Service, réalisé avec WordPress
+        url: https://blog.komquest.cc
+        icon: blog.svg
+        target: newtab
+        statusCheck: false
