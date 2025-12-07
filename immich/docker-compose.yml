@@ -1,0 +1,82 @@
+version: "3.8"
+
+services:
+  immich-server:
+    image: ghcr.io/immich-app/immich-server:latest
+    container_name: esir_immich-server
+    port:
+      - "3001:3001"
+    environment:
+      - DB_HOSTNAME=immich-database
+      - DB_USERNAME=immich
+      - DB_PASSWORD=immich_db_secret
+      - DB_DATABASE=immich
+      - REDIS_HOSTNAME=immich-redis
+      - REDIS_PASSWORD=immich_redis_secret
+      - TZ=Europe/Paris
+      - UPLOAD_LOCATION=/usr/src/app/upload
+    volumes:
+      - immich-upload:/usr/src/app/upload # Dossier pour les photos
+      - /etc/localtime:/etc/localtime:ro
+    networks:
+      - esir-network
+    restart: unless-stopped
+
+  immich-microservices:
+    image: ghcr.io/immich-app/immich-microservices:latest
+    container_name: esir_immich-microservices
+    environment:
+      - DB_HOSTNAME=immich-database
+      - DB_USERNAME=immich
+      - DB_PASSWORD=immich_db_secret
+      - DB_DATABASE=immich
+      - REDIS_HOSTNAME=immich-redis
+      - REDIS_PASSWORD=immich_redis_secret
+      - TZ=Europe/Paris
+      - UPLOAD_LOCATION=/usr/src/app/upload
+    volumes:
+      - immich-upload:/usr/src/app/upload
+      - /etc/localtime:/etc/localtime:ro
+    networks:
+      - esir-network
+    restart: unless-stopped
+    depends_on:
+      - immich-database
+      - immich-redis
+
+  immich-database:
+    image: postgres:15-alpine
+    container_name: esir_immich-database
+    environment:
+      - POSTGRES_USER=immich
+      - POSTGRES_PASSWORD=immich_db_secret
+      - POSTGRES_DB=immich
+      - TZ=Europe/Paris
+    volumes:
+      - immich-postgres:/var/lib/postgresql/data
+      - /etc/localtime:/etc/localtime:ro
+    networks:
+      - esir-network
+    restart: unless-stopped
+
+  immich-redis:
+    image: redis:7-alpine
+    container_name: esir_immich-redis
+    environment:
+      - REDIS_PASSWORD=immich_redis_secret
+      - TZ=Europe/Paris
+    volumes:
+      - immich-redis:/data
+      - /etc/localtime:/etc/localtime:ro
+    networks:
+      - esir-network
+    restart: unless-stopped
+
+volumes:
+  immich-upload:
+  immich-postgres:
+  immich-redis:
+
+networks:
+  esir-network:
+    external: true

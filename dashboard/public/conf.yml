@@ -47,6 +47,12 @@ sections:
         icon: wordpress.svg
         target: newtab
         statusCheck: true
+      - title: Immich
+        description: Gestion et de partage de photos et vidéos.
+        url: https://photos.komquest.cc
+        icon: immich.png
+        target: newtab
+        statusCheck: true
 
 
   - name: Sécurité
