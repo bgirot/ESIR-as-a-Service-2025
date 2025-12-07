@@ -33,7 +33,7 @@ sections:
 
       - title: Gitea
         description: Solution légère pour l'hébergement des dépôts Git, la gestion de versions et la collaboration sur le code source.
-        url: https://git.komquest.cc
+        url: https://git.komquest.cc/user/login?redirect_to=%2f
         icon: gitea.svg
         target: newtab
         statusCheck: true
